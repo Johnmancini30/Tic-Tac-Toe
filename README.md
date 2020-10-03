@@ -1,2 +1,2 @@
-This is a basic tic-tac-toe game made using python 3.
+This is a basic Tic-Tac-Toe game made using Python 3.
     
