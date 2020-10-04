@@ -17,15 +17,19 @@ class tic_tac_toe:
         while True:
             curr_tic = 'X' if curr_player == 1 else 'O'
             inp = input("player " + str(curr_player) + " move: ")
+            if len(inp) != 2 or not inp.isdigit():
+                continue
             i, j = map(int, inp)
+            if i < 0 or i >= self.n or j < 0 or j >= self.n:
+                continue
             if self.board[i][j] != '':
                 continue
             self.board[i][j] = curr_tic
 
+            self.print_board()
             if self.game_over(curr_tic):
                 print("player " + str(curr_player) + " wins!!")
                 break
-            self.print_board()
             curr_player = int(not curr_player)
 
     def game_over(self, tic):
@@ -57,5 +61,5 @@ class tic_tac_toe:
             
 if __name__ == '__main__':
     n = 3
-    ttt = tic_tac_toe(n)
+    ttt = tic_tac_toe(5)
     ttt.play()
